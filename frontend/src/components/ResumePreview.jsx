@@ -101,7 +101,7 @@ const ResumePreview = ({ resumeData, onDownloadPDF, template, setTemplate }) => 
                 <div key={index}>
                   <div className="flex justify-between items-start mb-1">
                     <h3 className="text-xl font-semibold text-gray-900">{edu.degree}</h3>
-                    <span className="text-gray-600 text-sm">
+                    <span className="text-gray-600 text-sm flex-shrink-0 whitespace-nowrap ml-4">
                       {edu.startDate} - {edu.endDate}
                     </span>
                   </div>
@@ -215,7 +215,7 @@ const ResumePreview = ({ resumeData, onDownloadPDF, template, setTemplate }) => 
                       <p className="text-gray-700 italic text-sm">{edu.institution}</p>
                       {edu.field && <p className="text-gray-700 text-sm">{edu.field}</p>}
                     </div>
-                    <span className="text-gray-600 text-sm">
+                    <span className="text-gray-600 text-sm flex-shrink-0 whitespace-nowrap ml-4">
                       {edu.startDate} - {edu.endDate}
                     </span>
                   </div>

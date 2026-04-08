@@ -36,39 +36,31 @@ const Login = () => {
         <div className="absolute top-1/2 left-1/2 w-80 h-80 bg-pink-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-4000"></div>
       </div>
 
-      <div className="max-w-md w-full space-y-8 relative z-10 animate-fadeInUp">
-        {/* Glass card */}
-        <div className="glass rounded-2xl p-8 sm:p-10 space-y-8">
+      <div className="max-w-md w-full relative z-10 animate-fadeInUp">
+        <div className="glass rounded-2xl p-8 sm:p-10 flex flex-col gap-6">
           {/* Header */}
-          <div className="space-y-4">
-            <div className="flex justify-center">
-              <div className="p-4 bg-gradient-to-br from-cyan-500 to-purple-600 rounded-xl shadow-lg shadow-purple-500/50">
-                <LogIn className="h-8 w-8 text-white" />
-              </div>
+          <div className="flex flex-col items-center gap-4 text-center">
+            <div className="p-4 bg-gradient-to-br from-cyan-500 to-purple-600 rounded-xl shadow-lg shadow-purple-500/50">
+              <LogIn className="h-8 w-8 text-white" />
             </div>
-            <div className="space-y-2 text-center">
-              <h2 className="text-3xl font-bold gradient-text">
-                Welcome Back
-              </h2>
-              <p className="text-slate-400">
-                Sign in to your account to continue
-              </p>
+            <div className="space-y-2">
+              <h2 className="text-3xl font-bold gradient-text">Welcome Back</h2>
+              <p className="text-slate-400">Sign in to your account to continue</p>
             </div>
           </div>
 
           {/* Error message */}
           {error && (
-            <div className="bg-red-500/20 border border-red-500/50 rounded-lg p-4 flex items-start space-x-3 animate-slideInLeft">
+            <div className="bg-red-500/20 border border-red-500/50 rounded-2xl p-4 flex items-start space-x-3 animate-slideInLeft">
               <AlertCircle className="h-5 w-5 text-red-400 flex-shrink-0 mt-0.5" />
               <span className="text-red-200 text-sm">{error}</span>
             </div>
           )}
 
           {/* Form */}
-          <form className="space-y-5" onSubmit={handleSubmit}>
-            {/* Email field */}
-            <div className="space-y-2">
-              <label htmlFor="email" className="block text-sm font-medium text-slate-300">
+          <form className="flex flex-col gap-5" onSubmit={handleSubmit}>
+            <div className="flex flex-col gap-2">
+              <label htmlFor="email" className="text-sm font-medium text-slate-300">
                 Email Address
               </label>
               <div className="relative">
@@ -81,14 +73,13 @@ const Login = () => {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="you@example.com"
-                  className="w-full pl-10 pr-4 py-3 text-white placeholder-slate-500 focus:ring-2 focus:ring-cyan-500/50"
+                  className="w-full rounded-2xl border border-white/15 bg-white/5 px-4 pl-10 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-500/20"
                 />
               </div>
             </div>
 
-            {/* Password field */}
-            <div className="space-y-2">
-              <label htmlFor="password" className="block text-sm font-medium text-slate-300">
+            <div className="flex flex-col gap-2">
+              <label htmlFor="password" className="text-sm font-medium text-slate-300">
                 Password
               </label>
               <div className="relative">
@@ -101,39 +92,35 @@ const Login = () => {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="••••••••"
-                  className="w-full pl-10 pr-4 py-3 text-white placeholder-slate-500 focus:ring-2 focus:ring-cyan-500/50"
+                  className="w-full rounded-2xl border border-white/15 bg-white/5 px-4 pl-10 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-500/20"
                 />
               </div>
             </div>
 
-            {/* Submit button */}
             <button
               type="submit"
               disabled={loading}
-              className="w-full btn btn-primary py-3 font-semibold flex items-center justify-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-cyan-500/25 hover:shadow-cyan-500/50"
+              className="w-full btn btn-primary py-3 font-semibold flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-cyan-500/25 hover:shadow-cyan-500/50"
             >
               <LogIn className="h-5 w-5" />
               <span>{loading ? 'Signing in...' : 'Sign in'}</span>
             </button>
           </form>
 
-          {/* Divider */}
-          <div className="relative">
-            <div className="absolute inset-0 flex items-center">
-              <div className="w-full border-t border-white/10"></div>
-            </div>
-            <div className="relative flex justify-center text-sm">
-              <span className="px-2 bg-slate-800/50 text-slate-400">New to our platform?</span>
-            </div>
+          <div className="flex items-center gap-3">
+            <span className="flex-1 h-px bg-white/10"></span>
+            <span className="text-sm text-slate-400">New to our platform?</span>
+            <span className="flex-1 h-px bg-white/10"></span>
           </div>
 
-          {/* Sign up link */}
-          <Link
-            to="/register"
-            className="w-full btn btn-outline py-3 font-semibold text-center hover:bg-cyan-500/10"
-          >
-            Create an account
-          </Link>
+          <div className="flex flex-col gap-3">
+            <Link
+              to="/register"
+              className="w-full btn btn-outline py-3 font-semibold text-center hover:bg-cyan-500/10"
+            >
+              Create an account
+            </Link>
+          </div>
         </div>
       </div>
     </div>

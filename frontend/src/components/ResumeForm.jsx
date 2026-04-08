@@ -220,22 +220,20 @@ const ResumeForm = ({ resumeData, setResumeData, onGenerateSummary, generatingSu
                   onChange={(e) => handleEducationChange(index, 'field', e.target.value)}
                   className="bg-white/10 border border-white/20 rounded-lg px-4 py-3 text-white placeholder-slate-400 focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/20 focus:outline-none"
                 />
-                <div className="flex space-x-2">
-                  <input
-                    type="text"
-                    placeholder="Start Date"
-                    value={edu.startDate}
-                    onChange={(e) => handleEducationChange(index, 'startDate', e.target.value)}
-                    className="flex-1 bg-white/10 border border-white/20 rounded-lg px-4 py-3 text-white placeholder-slate-400 focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/20 focus:outline-none"
-                  />
-                  <input
-                    type="text"
-                    placeholder="End Date"
-                    value={edu.endDate}
-                    onChange={(e) => handleEducationChange(index, 'endDate', e.target.value)}
-                    className="flex-1 bg-white/10 border border-white/20 rounded-lg px-4 py-3 text-white placeholder-slate-400 focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/20 focus:outline-none"
-                  />
-                </div>
+                <input
+                  type="text"
+                  placeholder="Start Date"
+                  value={edu.startDate}
+                  onChange={(e) => handleEducationChange(index, 'startDate', e.target.value)}
+                  className="bg-white/10 border border-white/20 rounded-lg px-4 py-3 text-white placeholder-slate-400 focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/20 focus:outline-none"
+                />
+                <input
+                  type="text"
+                  placeholder="End Date"
+                  value={edu.endDate}
+                  onChange={(e) => handleEducationChange(index, 'endDate', e.target.value)}
+                  className="bg-white/10 border border-white/20 rounded-lg px-4 py-3 text-white placeholder-slate-400 focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/20 focus:outline-none"
+                />
                 <textarea
                   placeholder="Description (optional)"
                   value={edu.description}
@@ -287,32 +285,32 @@ const ResumeForm = ({ resumeData, setResumeData, onGenerateSummary, generatingSu
                   onChange={(e) => handleExperienceChange(index, 'position', e.target.value)}
                   className="bg-white/10 border border-white/20 rounded-lg px-4 py-3 text-white placeholder-slate-400 focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/20 focus:outline-none"
                 />
-                <div className="flex space-x-2">
+                <div className="md:col-span-2 grid grid-cols-1 md:grid-cols-3 gap-3 items-center">
                   <input
                     type="text"
                     placeholder="Start Date"
                     value={exp.startDate}
                     onChange={(e) => handleExperienceChange(index, 'startDate', e.target.value)}
-                    className="flex-1 bg-white/10 border border-white/20 rounded-lg px-4 py-3 text-white placeholder-slate-400 focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/20 focus:outline-none"
+                    className="w-full bg-white/10 border border-white/20 rounded-lg px-4 py-3 text-white placeholder-slate-400 focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/20 focus:outline-none"
                   />
                   <input
                     type="text"
                     placeholder="End Date"
                     value={exp.endDate}
                     onChange={(e) => handleExperienceChange(index, 'endDate', e.target.value)}
-                    className="flex-1 bg-white/10 border border-white/20 rounded-lg px-4 py-3 text-white placeholder-slate-400 focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/20 focus:outline-none"
+                    className="w-full bg-white/10 border border-white/20 rounded-lg px-4 py-3 text-white placeholder-slate-400 focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/20 focus:outline-none"
                     disabled={exp.current}
                   />
+                  <label className="flex items-center space-x-2 text-slate-300">
+                    <input
+                      type="checkbox"
+                      checked={exp.current}
+                      onChange={(e) => handleExperienceChange(index, 'current', e.target.checked)}
+                      className="w-4 h-4 bg-white/10 border border-white/20 rounded focus:ring-2 focus:ring-cyan-400/20 cursor-pointer"
+                    />
+                    <span>Currently working here</span>
+                  </label>
                 </div>
-                <label className="flex items-center space-x-2 text-slate-300">
-                  <input
-                    type="checkbox"
-                    checked={exp.current}
-                    onChange={(e) => handleExperienceChange(index, 'current', e.target.checked)}
-                    className="w-4 h-4 bg-white/10 border border-white/20 rounded focus:ring-2 focus:ring-cyan-400/20 cursor-pointer"
-                  />
-                  <span>Currently working here</span>
-                </label>
                 <textarea
                   placeholder="Job description and achievements"
                   value={exp.description}
